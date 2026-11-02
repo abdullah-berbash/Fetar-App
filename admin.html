@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2775.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ar" dir="rtl"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;لوحة التحكم&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: Tahoma; padding: 15px; background: #f4f4f4; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>th { background: #333; color: white; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button { padding: 10px 15px; background: #ff6b35; color: white; border: none; cursor: pointer; border-radius: 5px; font-weight: bold;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;📊 طلبات الشباب (مباشر)&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="loadOrders()"&gt;تحديث 🔄&lt;/button&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;th&gt;الاسم&lt;/th&gt;&lt;th&gt;الأكل&lt;/th&gt;&lt;th&gt;الحساب&lt;/th&gt;&lt;th&gt;الوقت&lt;/th&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;tbody id="tableBody"&gt;&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";</p>
+<p class="p2"><br></p>
+<p dir="rtl" class="p1"><span class="Apple-converted-space">        </span>// ⚠️ حط هنا نفس كود Firebase بتاعك (لازم يكون نفس اللي في الملف اللي فوق)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const firebaseConfig = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>apiKey: "YOUR_API_KEY",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>authDomain: "YOUR_PROJECT.firebaseapp.com",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>projectId: "YOUR_PROJECT",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>storageBucket: "YOUR_PROJECT.appspot.com",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>messagingSenderId: "YOUR_ID",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>appId: "YOUR_APP_ID"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p dir="rtl" class="p1"><span class="Apple-converted-space">        </span>// ⚠️ متلمسش اللي تحت ده</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const app = initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const db = getFirestore(app);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.loadOrders = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tbody = document.getElementById('tableBody');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tbody.innerHTML = 'جاري التحميل...';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const querySnapshot = await getDocs(collection(db, "orders"));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tbody.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(querySnapshot.empty) { tbody.innerHTML = '&lt;tr&gt;&lt;td colspan="4"&gt;لا يوجد طلبات&lt;/td&gt;&lt;/tr&gt;'; return; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>querySnapshot.forEach((doc) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const data = doc.data();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const itemsNames = data.items.map(i =&gt; `${i.name} (x${i.qty})`).join(' + ');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>tbody.innerHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;&lt;strong&gt;${data.user}&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;${itemsNames}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;${data.total} ج.م&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td style="font-size:12px;"&gt;${data.date}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tbody.innerHTML = 'خطأ في الاتصال بقاعدة البيانات، تأكد من الـ Config.';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = loadOrders;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

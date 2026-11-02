@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2775.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ar" dir="rtl"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;فطارنا - طلب الفطار&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { background: #f4f7f6; color: #333; padding-bottom: 50px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>header { background: #ff6b35; color: white; padding: 20px; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>main { padding: 15px; max-width: 800px; margin: auto; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.user-section { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>select { padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; width: 100%; margin-top: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card { background: white; border-radius: 10px; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card h3 { font-size: 14px; margin-bottom: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card .price { color: #ff6b35; font-weight: bold; margin-bottom: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card button { background: #ff6b35; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cart-section { background: white; padding: 15px; border-radius: 10px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cart-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#submit-order-btn { background: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-size: 16px; cursor: pointer; margin-top: 10px; font-weight: bold;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;🍳 فطارنا&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;اطلب فطارك بسهولة&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="user-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;&lt;strong&gt;اختار اسمك:&lt;/strong&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="userName"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value=""&gt;-- اختار من القائمة --&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="menu-container" class="menu-grid"&gt;&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="cart-section" id="cart-section" style="display:none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;طلبك الحالي&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="cart-items"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin-top:10px;"&gt;الإجمالي: &lt;strong id="total-price"&gt;0&lt;/strong&gt; ج.م&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="submit-order-btn" onclick="submitOrder()"&gt;تأكيد الطلب ✅&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";</p>
+<p class="p2"><br></p>
+<p dir="rtl" class="p1"><span class="Apple-converted-space">        </span>// ⚠️ هنا امسح الكود ده وحط الـ firebaseConfig بتاعك اللي نسخته من Firebase</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const firebaseConfig = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>apiKey: "YOUR_API_KEY",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>authDomain: "YOUR_PROJECT.firebaseapp.com",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>projectId: "YOUR_PROJECT",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>storageBucket: "YOUR_PROJECT.appspot.com",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>messagingSenderId: "YOUR_ID",</p>
+<p class="p1"><span class="Apple-converted-space">            </span>appId: "YOUR_APP_ID"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p dir="rtl" class="p1"><span class="Apple-converted-space">        </span>// ⚠️ متلمسش اللي تحت ده</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const app = initializeApp(firebaseConfig);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const db = getFirestore(app);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const menuItems = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 1, name: "فول مدمس", price: 10 }, { id: 2, name: "طعمية", price: 5 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 3, name: "بطاطس محمرة", price: 12 }, { id: 4, name: "جبنة بيضاء", price: 15 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ id: 5, name: "بيض مقلي", price: 12 }, { id: 6, name: "شاي", price: 5 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const users = ["Hesham", "Ra'fat", "Alaa", "Magdy", "Abdullah", "Fatma"];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let cart = {};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const select = document.getElementById('userName');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>users.forEach(u =&gt; select.innerHTML += `&lt;option value="${u}"&gt;${u}&lt;/option&gt;`);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('menu-container');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>menuItems.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>container.innerHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;${item.name}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="price"&gt;${item.price} ج.م&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="addToCart(${item.id})"&gt;إضافة +&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.addToCart = (id) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(!document.getElementById('userName').value) { alert("اختار اسمك الأول!"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const item = menuItems.find(i =&gt; i.id === id);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(cart[id]) cart[id].qty++; else cart[id] = {...item, qty: 1};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('cart-section').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const itemsDiv = document.getElementById('cart-items');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>itemsDiv.innerHTML = ''; let total = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Object.values(cart).forEach(i =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>total += i.price * i.qty;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>itemsDiv.innerHTML += `&lt;div class="cart-item"&gt;&lt;span&gt;${i.name} (x${i.qty})&lt;/span&gt;&lt;span&gt;${i.price*i.qty} ج.م&lt;/span&gt;&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('total-price').innerText = total;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.submitOrder = async () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(Object.keys(cart).length === 0) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const order = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>user: document.getElementById('userName').value,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>items: Object.values(cart),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>total: Object.values(cart).reduce((s, i) =&gt; s + (i.price * i.qty), 0),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>date: new Date().toLocaleString('ar-EG')</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await addDoc(collection(db, "orders"), order);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("تم إرسال طلبك بنجاح! 🎉");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>location.reload();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("حصلت مشكلة، اتأكد إنك ظبطت الـ FirebaseConfig وإن الـ Firestore شغال.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
